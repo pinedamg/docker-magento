@@ -7,10 +7,14 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -y install wget
 RUN wget https://files.magerun.net/n98-magerun.phar
 RUN chmod +x ./n98-magerun.phar
+RUN magerun-aliases >> /root/.bash_aliases
 
 #ADD MAGERUN ALIAS
 RUN mv ./n98-magerun.phar /usr/local/bin/magerun
 RUN chmod +x /usr/local/bin/magerun
+
+COPY ./aliases /root/aliases
+RUN /root/aliases >> /root/.bash_aliases && rm -f /root/aliases
 
 #ADD MAGENTO RECOMMENDED SETTINGS
 COPY zz-magento.ini /etc/php5/cli/conf.d/zz-magento.ini
