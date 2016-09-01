@@ -14,7 +14,7 @@ RUN mv ./n98-magerun.phar /usr/local/bin/magerun
 RUN chmod +x /usr/local/bin/magerun
 
 COPY ./aliases /root/aliases
-RUN /root/aliases >> /root/.bash_aliases && rm -f /root/aliases
+RUN cat /root/aliases >> /root/.bash_aliases && rm -f /root/aliases
 
 #ADD MAGENTO RECOMMENDED SETTINGS
 COPY zz-magento.ini /etc/php5/cli/conf.d/zz-magento.ini
