@@ -4,7 +4,7 @@ MAINTAINER MPineda <pinedamg@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 #INSTALL MAGERUN
-RUN apt-get -y install wget
+RUN apt-get update && apt-get -y install wget
 RUN wget https://files.magerun.net/n98-magerun.phar
 RUN chmod +x ./n98-magerun.phar
 RUN magerun-aliases >> /root/.bash_aliases
