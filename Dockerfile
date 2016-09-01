@@ -7,7 +7,8 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -y install wget
 RUN wget https://files.magerun.net/n98-magerun.phar
 RUN chmod +x ./n98-magerun.phar
-RUN magerun-aliases >> /root/.bash_aliases
+COPY ./magerun-aliases /root/magerun-aliases
+RUN cat /root/magerun-aliases >> /root/.bash_aliases && rm -f /root/aliases
 
 #ADD MAGERUN ALIAS
 RUN mv ./n98-magerun.phar /usr/local/bin/magerun
