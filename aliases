@@ -2,3 +2,4 @@
 alias mg-cache='magerun cache:disable && magerun cache:clean && magerun cache:flush && magerun cache:dir:flush'
 alias mg-merge='magerun dev:merge-css && dev:merge-js'
 alias mg-reindex='magerun index:reindex:all'
+
